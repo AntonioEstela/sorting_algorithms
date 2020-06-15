@@ -53,7 +53,7 @@ void selection_sort(int *array, size_t size)
 
 	for (i = 0; i < size; i++)
 	{
-		min = find_minimun(array, i, (int)size);
+		min = find_minimum(array, i, (int)size);
 		swap(array, i, min);
 		print_array(array, size);
 	}
