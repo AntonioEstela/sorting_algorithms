@@ -46,24 +46,24 @@ void insertion_sort_list(listint_t **list)
 	listint_t *curr = NULL;
 	listint_t *tmp = NULL;
 
-	if (*list != NULL && list != NULL && (*list)->next != NULL)
+	if (*list == NULL || list == NULL)
+		return;
+
+	curr = *list;
+	while (curr->next != NULL)
 	{
-		curr = *list;
-		while (curr->next != NULL)
+		if (curr->n > curr->next->n)
 		{
-			if (curr->n > curr->next->n)
+			swap_nodes(list, curr, curr->next);
+			tmp = curr;
+			curr = curr->prev;
+			while (curr->prev && curr->n < curr->prev->n)
 			{
-				swap_nodes(list, curr, curr->next);
-				tmp = curr;
-				curr = curr->prev;
-				while (curr->prev && curr->n < curr->prev->n)
-				{
-					swap_nodes(list, curr->prev, curr);
-				}
-				curr = tmp;
+				swap_nodes(list, curr->prev, curr);
 			}
-			else
-				curr = curr->next;
+			curr = tmp;
 		}
+		else
+			curr = curr->next;
 	}
 }
