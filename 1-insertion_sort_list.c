@@ -32,6 +32,7 @@ void swap_nodes(listint_t **list, listint_t *curr, listint_t *nxt)
 	tmp->prev = nxt;
 	nxt->next = tmp;
 
+	print_list(*list);
 }
 
 /**
@@ -58,7 +59,6 @@ void insertion_sort_list(listint_t **list)
 				while (curr->prev && curr->n < curr->prev->n)
 				{
 					swap_nodes(list, curr->prev, curr);
-					print_list(*list);
 				}
 				curr = tmp;
 			}
