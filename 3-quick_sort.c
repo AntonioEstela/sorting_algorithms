@@ -62,7 +62,7 @@ void sort(int *array, int start, int end, size_t size)
 	{
 		pivotIndex = array_partition(array, start, end, size);
 		sort(array, start, pivotIndex - 1, size);
-		sort(array, pivotIndex, end, size);
+		sort(array, pivotIndex + 1, end, size);
 	}
 }
 /**
